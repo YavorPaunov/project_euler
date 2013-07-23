@@ -5,18 +5,23 @@ def largest_sum(grid_list):
     max_prod = 0;
     for y in range(len(grid_list)):
         for x in range(len(grid_list[y])):
+            
             # same row 
             if x < len(grid_list[y]) - 3:
                 max_prod = max(max_prod, reduce(lambda x, y: x*y, [grid_list[y][i] for i in range(x, x+4)]));
+            
             # same column
             if y < len(grid_list) - 3:
                 max_prod = max(max_prod, reduce(lambda x, y: x*y,[grid_list[i][x] for i in range(y, y+4)]));
+            
             # diagonal right
             if y < len(grid_list) - 3 and x < len(grid_list[y]) - 3:
                 max_prod = max(max_prod, reduce(lambda x, y: x*y,[grid_list[i][x + i - y] for i in range(y, y+4)]));
+            
             #diagonal left
             if y < len(grid_list) - 3 and x >= 3:
                 max_prod = max(max_prod, reduce(lambda x, y: x*y, [grid_list[i][x + y - i] for i in range(y, y+4)]));
+                
     return max_prod;
     
 if __name__ == "__main__":

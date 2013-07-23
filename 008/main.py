@@ -1,3 +1,5 @@
+# author: Yavor Paunov
+
 from functools import reduce
 
 def largest_product(number_str):
